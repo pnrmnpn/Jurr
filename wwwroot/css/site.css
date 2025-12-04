@@ -1153,3 +1153,37 @@ h1, h2, h3, h4, .section-title, .brand {
 .lang-toggle .lang:not(.active) { color: #8a1637; opacity: 1; }
 /* Hover brings white */
 .lang-toggle .lang:hover { color: #ffffff; }
+
+/* Services section replica with right-side toggle */
+.svc-section { padding: 60px 0 100px; background: var(--bg); }
+/* 2 columns: left photo, right text; rows auto so we can place list below by spanning columns */
+.svc-grid { display: grid; grid-template-columns: 360px 1fr; grid-auto-rows: min-content; gap: 48px; align-items: start; }
+
+.svc-photo { margin: 0; border: 2px solid rgba(231,201,165,0.4); padding: 10px; position: relative; }
+.svc-photo::before { content: ""; position: absolute; inset: -22px; border: 2px solid rgba(231,201,165,0.25); pointer-events: none; }
+.svc-photo img { display: block; width: 100%; height: 260px; object-fit: cover; }
+
+.svc-content { position: relative; }
+/* Title and toggle on same row */
+.svc-head { display: grid; grid-template-columns: 1fr auto; column-gap: 18px; align-items: center; }
+.svc-num { color: var(--cream); opacity: .9; font-size: 14px; letter-spacing: .2em; grid-column: 1 / -1; }
+.svc-title { margin: 4px 0 10px; color: #cdb08a; letter-spacing: .14em; text-transform: uppercase; font-size: clamp(20px, 3vw, 28px); }
+
+/* Right magenta button */
+.svc-toggle { width: 48px; height: 48px; border-radius: 12px; border: none; background: #7a0e3a; display: inline-grid; place-items: center; cursor: pointer; }
+.svc-toggle .chev { transition: transform .25s ease; }
+.svc-toggle[aria-expanded="true"] .chev { transform: rotate(180deg); }
+
+.svc-desc { max-width: 540px; color: var(--muted); margin: 6px 0 16px; }
+
+/* Make the list span the full container width on the next grid row and start under photo */
+.svc-list { grid-column: 1 / -1; width: 100%; max-width: none; align-self: start; }
+.svc-list ul { margin: 0; padding-left: 22px; }
+.svc-list li { color: rgba(255,255,255,.92); line-height: 1.7; margin: 10px 0; position: relative; }
+.svc-list li::marker { color: #cdb08a; }
+
+@media (max-width: 900px){
+  .svc-grid { grid-template-columns: 1fr; }
+  .svc-photo img { height: 200px; }
+  .svc-list { grid-column: 1; }
+}
