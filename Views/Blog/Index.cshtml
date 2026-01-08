@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Jurr.Data.Post>
+@{
     ViewData["Title"] = "Blog";
 }
 
@@ -10,5 +11,34 @@
             Ми надаємо повний спектр юридичних послуг
             — від консультацій і складання документів до комплексного супроводу бізнесу та захисту інтересів у суді.
         </p>
+    </div>
+</section>
+
+<section class="section blog-list">
+    <div class="container">
+        @foreach (var post in Model)
+        {
+            <article class="blog-item">
+                <div class="blog-media">
+                    <a asp-controller="Blog" asp-action="Details" asp-route-id="@post.PostId">
+                        @if(!string.IsNullOrWhiteSpace(post.ImageUrl))
+                        {
+                            <img src="@post.ImageUrl" alt="blog image" />
+                        }
+                        else
+                        {
+                            <img src="/images/contacts-sunset.jpg" alt="blog image" />
+                        }
+                    </a>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">ЗАКОН</div>
+                    <h3 class="blog-title">
+                        <a class="blog-title-link" asp-controller="Blog" asp-action="Details" asp-route-id="@post.PostId">@post.Title</a>
+                    </h3>
+                    <p class="blog-excerpt">@post.Content</p>
+                </div>
+            </article>
+        }
     </div>
 </section>

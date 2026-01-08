@@ -1,0 +1,19 @@
+@model Jurr.Data.Post
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<section class="section post-full">
+    <div class="container">
+        <article class="blog-item">
+            <div class="blog-media">
+                <img src="@(string.IsNullOrWhiteSpace(Model.ImageUrl) ? "/images/contacts-sunset.jpg" : Model.ImageUrl)" alt="post image" />
+            </div>
+            <div class="blog-content">
+                <div class="blog-meta">@Model.CreatedAt.ToLocalTime().ToString("yyyy-MM-dd")</div>
+                <h1 class="blog-title">@Model.Title</h1>
+                <div class="blog-excerpt">@Model.Content</div>
+            </div>
+        </article>
+    </div>
+</section>

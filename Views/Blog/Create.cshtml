@@ -1,0 +1,26 @@
+﻿@model Jurr.Controllers.BlogController.CreatePostModel
+@{
+    ViewData["Title"] = "Create Post";
+}
+<section class="contact-form-beige">
+    <div class="container form-inner">
+        <h2 class="beige-title">СТВОРИТИ НОВИЙ ПОСТ</h2>
+        <form asp-action="Create" asp-controller="Blog" method="post" class="beige-form" enctype="multipart/form-data">
+            <div class="form-field full">
+                <label class="field-label" for="Title">Заголовок</label>
+                <input id="Title" name="Title" type="text" required />
+            </div>
+            <div class="form-field full">
+                <label class="field-label" for="Content">Контент</label>
+                <textarea id="Content" name="Content" rows="6"></textarea>
+            </div>
+            <div class="form-field full">
+                <label class="field-label" for="Image">Зображення (опційно)</label>
+                <input id="Image" name="Image" type="file" accept="image/*" />
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-submit" type="submit">ОПУБЛІКУВАТИ</button>
+            </div>
+        </form>
+    </div>
+</section>

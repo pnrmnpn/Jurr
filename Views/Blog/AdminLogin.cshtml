@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Admin Login";
+}
+
+<section class="contact-form-beige">
+    <div class="container form-inner">
+        <h2 class="beige-title">ВХІД ДЛЯ АДМІНА</h2>
+        <form asp-action="AdminLogin" asp-controller="Blog" method="post" class="beige-form">
+            <div class="row">
+                <div class="form-field">
+                    <label class="field-label" for="UserName">Логін</label>
+                    <input id="UserName" name="UserName" type="text" required />
+                </div>
+                <div class="form-field">
+                    <label class="field-label" for="Password">Пароль</label>
+                    <input id="Password" name="Password" type="password" required />
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-submit" type="submit">УВІЙТИ</button>
+            </div>
+        </form>
+    </div>
+</section>

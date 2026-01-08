@@ -1639,3 +1639,30 @@ h1, h2, h3, h4, .section-title, .brand {
     object-fit: contain;
     z-index: 1;
 }
+
+/* Blog list layout styles */
+.blog-list .container{ max-width:1200px; }
+.blog-item{ display:grid; grid-template-columns: 360px 1fr; gap:40px; align-items:start; margin-bottom:46px; }
+.blog-media{ padding:12px; border:2px solid rgba(255,255,255,0.04); background:transparent; }
+.blog-media img{ width:100%; height:auto; max-height:220px; object-fit:contain; display:block; }
+@media (max-width: 992px){
+  .blog-media img{ max-height:260px; }
+}
+
+.blog-content{ padding-top:6px; max-height:220px; overflow:hidden; }
+.blog-meta{ color:#b0153c; text-transform:uppercase; font-size:12px; letter-spacing:.24em; margin-bottom:8px; }
+.blog-title{ color:var(--cream); font-size:24px; letter-spacing:.12em; text-transform:uppercase; margin:0 0 8px; }
+.blog-title .blog-title-link{ color:var(--cream); text-decoration:none; }
+.blog-title .blog-title-link:hover{ color:var(--cream); text-decoration:underline; text-underline-offset:4px; }
+.blog-excerpt{ color:#cbd0e6; max-width:640px; /* ensure text does not exceed image height */ max-height:220px; overflow:hidden; display:-webkit-box; -webkit-line-clamp:12; -webkit-box-orient:vertical; }
+
+@media (max-width: 992px){
+    .blog-item{ grid-template-columns: 1fr; }
+    .blog-media img{ height:260px; }
+    .blog-content{ max-height:260px; }
+    .blog-excerpt{ max-height:260px; }
+}
+
+/* Full post page: show entire content without clamping */
+.post-full .blog-excerpt{ max-height:none; overflow:visible; -webkit-line-clamp:unset; display:block; }
+.post-full .blog-content{ max-height:none; }
